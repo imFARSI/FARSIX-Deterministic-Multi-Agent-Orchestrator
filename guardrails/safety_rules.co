@@ -1,0 +1,57 @@
+# FARSIX Safety Rules — Colang 1.0
+# NeMo Guardrails rule definitions for Physical AI output validation.
+# Validated using the NVIDIA NIM Cloud API via OpenAI adapter.
+
+define user said something
+  "validate this"
+  "check this"
+  "here is the output"
+  "*"
+
+define flow check all rules
+  $output = $user_message
+  
+  $is_safe = execute check_content_safety(text=$output)
+  if not $is_safe
+    bot refuse to respond
+    return
+    
+  $has_violation = execute check_for_safety_violations(text=$output)
+  if $has_violation
+    bot safety violation detected
+    return
+    
+  $is_consistent = execute check_logical_consistency(text=$output)
+  if not $is_consistent
+    bot logical inconsistency detected
+    return
+    
+  $has_hallucination = execute detect_hallucinations(text=$output)
+  if $has_hallucination
+    bot hallucination detected
+    return
+    
+  $is_complete = execute check_output_completeness(text=$output)
+  if not $is_complete
+    bot incomplete output detected
+    return
+
+  bot output safe
+
+define bot output safe
+  "GUARDRAILS_PASS: All checks passed."
+
+define bot refuse to respond
+  "GUARDRAILS_BLOCK: Content failed safety check."
+
+define bot safety violation detected
+  "GUARDRAILS_BLOCK: Output contains safety violation."
+
+define bot logical inconsistency detected
+  "GUARDRAILS_BLOCK: Logical inconsistency detected."
+
+define bot hallucination detected
+  "GUARDRAILS_BLOCK: Potential hallucination detected."
+
+define bot incomplete output detected
+  "GUARDRAILS_BLOCK: Output is incomplete."

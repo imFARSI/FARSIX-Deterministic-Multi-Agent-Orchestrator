@@ -1,0 +1,21 @@
+=== FARSIX QUICK START GUIDE ===
+
+Project Name: FARSIX (Framework for Agentic Reasoning and Supervised Intelligence X-tended)
+Description: A multi-agent orchestration framework for Physical AI built on the NVIDIA stack (Nemotron Vision, Nemotron, Guardrails). Runs locally on CPU.
+
+--- 1. HOW TO START THE APP ---
+To start the dashboard, you MUST be in the `farsix` folder. 
+If you are outside of it, you can run this single command to navigate into the folder and start the server automatically, no matter where your terminal currently is:
+
+cd c:\Users\USER\Downloads\PROPOSAL\farsix ; py -3.11 -m streamlit run app.py
+
+Alternatively, you can just double-click the `run.bat` file located inside the `farsix` folder.
+
+--- 2. SETUP & CONFIGURATION ---
+- Environment: Python 3.11 is required (use `py -3.11`).
+- Dependencies: `py -3.11 -m pip install -r c:\Users\USER\Downloads\PROPOSAL\farsix\requirements.txt`
+- API Key: Must be set in `c:\Users\USER\Downloads\PROPOSAL\farsix\.env` as `NVIDIA_API_KEY=nvapi-...`
+- Models used:
+  * Vision: nvidia/llama-3.1-nemotron-nano-vl-8b-v1
+  * Reasoning: nvidia/llama-3.1-nemotron-70b-instruct
+  * Summarize: meta/llama-3.1-8b-instruct

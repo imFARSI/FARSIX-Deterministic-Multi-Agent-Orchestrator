@@ -1,0 +1,36 @@
+# FARSIX Requirements — Python 3.11+ required
+# Install with: py -3.11 -m pip install -r requirements.txt
+
+# ── UI ─────────────────────────────────────────────
+streamlit>=1.28.0
+
+# ── NVIDIA NIM API ─────────────────────────────────
+openai>=1.30.0
+
+# ── Data processing ────────────────────────────────
+pandas>=1.5.0
+pdfplumber>=0.9.0
+pillow>=9.0.0
+
+# ── Async ──────────────────────────────────────────
+aiohttp>=3.8.0
+
+# ── Graph visualization ────────────────────────────
+networkx>=2.6.0
+pyvis>=0.3.2
+
+# ── Vector memory ──────────────────────────────────
+chromadb>=0.4.0
+
+# ── Safety / Guardrails ────────────────────────────
+nemoguardrails>=0.7.0
+
+# ── Visualization ──────────────────────────────────
+plotly>=5.0.0
+
+# ── System ─────────────────────────────────────────
+psutil>=5.9.0
+python-dotenv>=0.21.0
+
+# ── stdlib (no install needed) ─────────────────────
+# asyncio, sqlite3, threading, json, uuid, base64 — all built-in

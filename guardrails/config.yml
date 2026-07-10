@@ -1,0 +1,29 @@
+# NeMo Guardrails Configuration for FARSIX
+# This config connects to NVIDIA NIM API for intent classification.
+
+models:
+  - type: main
+    engine: openai
+    model: meta/llama-3.1-8b-instruct
+    parameters:
+      base_url: "https://integrate.api.nvidia.com/v1"
+      temperature: 0.0
+
+# Use the Colang rules defined in safety_rules.co
+colang_version: "1.0"
+
+instructions:
+  - type: general
+    content: |
+      You are a safety validation agent for FARSIX Physical AI outputs.
+      Your role is to check agent outputs for logical inconsistencies,
+      hallucinations, and safety violations. You do NOT generate new content.
+      You only validate existing content and flag problems.
+
+rails:
+  input:
+    flows:
+      - check all rules
+
+# Enable LLM text generation (we only want it for intent matching and validation)
+enable_multi_step_generation: true
