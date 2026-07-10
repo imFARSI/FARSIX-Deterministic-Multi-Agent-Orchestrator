@@ -3,7 +3,7 @@
   <p><b>Advanced Agentic Reasoning and Supervised Intelligence Framework</b></p>
 
   <!-- Autoplaying Demo Video -->
-  <video src="docs/assets/demo.mp4" autoplay loop muted playsinline width="100%"></video>
+  <video src="https://raw.githubusercontent.com/imFARSI/FARSIX-Deterministic-VLA-Orchestrator/master/docs/assets/demo.mp4" autoplay loop muted playsinline width="100%"></video>
 </div>
 
 ---
